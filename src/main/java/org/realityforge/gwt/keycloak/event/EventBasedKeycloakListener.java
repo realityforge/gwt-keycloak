@@ -119,7 +119,7 @@ public class EventBasedKeycloakListener
    * {@inheritDoc}
    */
   @Override
-  public void beforeAuthLogout( @Nonnull final Keycloak keycloak )
+  public final void beforeAuthLogout( @Nonnull final Keycloak keycloak )
   {
     _eventBus.fireEventFromSource( new BeforeAuthLogoutEvent( keycloak ), keycloak );
   }
