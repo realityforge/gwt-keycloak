@@ -1,5 +1,6 @@
 require 'buildr/git_auto_version'
 require 'buildr/gpg'
+require 'buildr/gwt'
 
 desc 'GWT Keycloak Library'
 define 'gwt-keycloak' do
