@@ -4,4 +4,4 @@ repositories:
 
 artifacts:
   javax_annotation: com.google.code.findbugs:jsr305:jar:2.0.1
-  gwt_user: com.google.gwt:gwt-user:jar:2.5.1
+  gwt_user: com.google.gwt:gwt-user:jar:2.8.1
