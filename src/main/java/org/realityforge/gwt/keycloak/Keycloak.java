@@ -286,6 +286,7 @@ public class Keycloak
 
   protected final void onAuthRefreshError()
   {
+    getImpl().clearToken();
     getListener().onAuthRefreshError( this );
   }
 
