@@ -10,4 +10,4 @@ install:
   - bundle install
 script: buildr clean package
 git:
-  depth: 10
+  depth: false
