@@ -60,6 +60,14 @@ keycloak.setListener( new KeycloakListenerAdapter()
 keycloak.init();
 ```
 
+When the token is needed to interact with a keycloak protected resource you can simply use the following
+code to access the current token, updating it if it is stale and needs to be refreshed.
+
+```java
+final int minTokenValiditySeconds = 30;
+keycloak.updateToken( minTokenValiditySeconds, () -> remoteCallUsingToken( keycloak.getToken() ) );
+```
+
 This should be sufficient to put together a simple Keycloak application.
 
 ## Appendix
