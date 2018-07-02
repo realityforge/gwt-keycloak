@@ -25,12 +25,12 @@ Then you add the following snippet into the .gwt.xml file.
 <module rename-to='myapp'>
   ...
 
-  <!-- Enable the websocket library -->
+  <!-- Enable the keycloak library -->
   <inherits name="org.realityforge.gwt.keycloak.Keycloak"/>
 </module>
 ```
 
-Then you can interact with the WebSocket from within the browser.
+Then you can interact with the Keycloak object from within the browser.
 
 ```java
 final Keycloak keycloak = new Keycloak( "MyApp", "http://127.0.0.1:8080/myapp/keycloak.json" );
