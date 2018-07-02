@@ -44,7 +44,7 @@ keycloak.setListener( new KeycloakListenerAdapter()
   {
     if( authenticated )
     {
-      //Start app here
+      //Already authenticated, start app here
     }
     else
     {
