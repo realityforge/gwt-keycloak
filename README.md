@@ -34,6 +34,10 @@ Then you add the following snippet into the .gwt.xml file.
 
 Then you can interact with the Keycloak object from within the browser.
 
+First you need to setup a Keycloak instance. Assuming your keycloak server has an application client
+named `"MyApp"` and the configuration json is at `http://127.0.0.1:8080/myapp/keycloak.json` then you
+end up with code like:
+
 ```java
 final Keycloak keycloak = new Keycloak( "MyApp", "http://127.0.0.1:8080/myapp/keycloak.json" );
 
