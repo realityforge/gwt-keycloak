@@ -19,3 +19,5 @@ env:
 before_install:
 - openssl aes-256-cbc -K $encrypted_a796be79d2ec_key -iv $encrypted_a796be79d2ec_iv
   -in etc/secrets -out ../secrets.tar -d
+- chmod 600 ../release.asc
+- gpg --import ../release.asc
