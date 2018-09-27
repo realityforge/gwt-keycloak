@@ -5,3 +5,4 @@ repositories:
 artifacts:
   javax_annotation: org.realityforge.javax.annotation:javax.annotation:jar:1.0.0
   gwt_user: com.google.gwt:gwt-user:jar:2.8.2
+  gwt_dev: com.google.gwt:gwt-dev:jar:2.8.2
