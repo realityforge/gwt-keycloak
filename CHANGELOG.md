@@ -1,5 +1,6 @@
 ## 0.3
 
+* Upgrade Buildr to latest release.
 * Compile GWT modules as part of build process to ensure that the `.gwt.xml` file is consistent.
 
 ## 0.2
