@@ -1,3 +1,7 @@
+## 0.4
+
+* Add `TokenCache` and `TokenCachingListener` classes to cache tokens in browser storage while valid.
+
 ## 0.3
 
 * Upgrade Buildr to latest release.

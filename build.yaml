@@ -3,6 +3,13 @@ repositories:
    - http://repo1.maven.org/maven2
 
 artifacts:
+  jsinterop_base: com.google.jsinterop:base:jar:1.0.0-RC1
+
+  elemental2_core: com.google.elemental2:elemental2-core:jar:1.0.0-RC1
+  elemental2_dom: com.google.elemental2:elemental2-dom:jar:1.0.0-RC1
+  elemental2_promise: com.google.elemental2:elemental2-promise:jar:1.0.0-RC1
+  elemental2_webstorage: com.google.elemental2:elemental2-webstorage:jar:1.0.0-RC1
+
   javax_annotation: org.realityforge.javax.annotation:javax.annotation:jar:1.0.0
   gwt_user: com.google.gwt:gwt-user:jar:2.8.2
   gwt_dev: com.google.gwt:gwt-dev:jar:2.8.2

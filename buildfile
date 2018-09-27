@@ -16,7 +16,13 @@ define 'gwt-keycloak' do
   pom.add_developer('realityforge', 'Peter Donald')
   pom.provided_dependencies.concat [:javax_annotation, :gwt_user]
 
-  compile.with :javax_annotation, :gwt_user
+  compile.with :jsinterop_base,
+               :elemental2_core,
+               :elemental2_dom,
+               :elemental2_promise,
+               :elemental2_webstorage,
+               :javax_annotation,
+               :gwt_user
 
   package(:jar).include("#{_(:source, :main, :java)}/*")
   package(:sources)
