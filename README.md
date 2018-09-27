@@ -75,7 +75,7 @@ This should be sufficient to put together a simple Keycloak application.
 You can also use the library to cache tokens local in web storage apis (i.e. local storage or session
 storage if available). These tokens will be revalidated locally and updated (assuming you use the correct
 listener) when necessary. This results in a much better user experience as the network overhead is significantly
-reduced. 
+reduced.
 
 First you add dependency as above, then you add a snippet like the following into the `.gwt.xml` file.
 
