@@ -70,6 +70,51 @@ keycloak.updateToken( minTokenValiditySeconds, () -> remoteCallUsingToken( keycl
 
 This should be sufficient to put together a simple Keycloak application.
 
+## Quick Start using token caching
+
+You can also use the library to cache tokens local in web storage apis (i.e. local storage or session
+storage if available). These tokens will be revalidated locally and updated (assuming you use the correct
+listener) when necessary. This results in a much better user experience as the network overhead is significantly
+reduced. 
+
+First you add dependency as above, then you add a snippet like the following into the `.gwt.xml` file.
+
+```xml
+<module rename-to='myapp'>
+  ...
+
+  <!-- Enable the keycloak library -->
+  <inherits name="org.realityforge.gwt.keycloak.cache.TokenCache"/>
+</module>
+```
+
+The code to interact with the backend looks something like:
+
+```java
+
+final Keycloak keycloak = new Keycloak( "MyApp", "http://127.0.0.1:8080/myapp/keycloak.json" );
+TokenCache.configure( keycloak );
+
+keycloak.setListener( new TokenCachingListener()
+{
+  @Override
+  public void onReady( @Nonnull final Keycloak keycloak, final boolean authenticated )
+  {
+    super.onReady( keycloak, authenticated );
+    if( authenticated )
+    {
+      //Already authenticated, start app here
+    }
+    else
+    {
+      keycloak.login();
+    }
+  }
+} );
+
+keycloak.init();
+```
+
 ## Appendix
 
 * [Keycloak Javascript Adapter](https://keycloak.gitbooks.io/securing-client-applications-guide/content/v/2.0/topics/oidc/javascript-adapter.html)
