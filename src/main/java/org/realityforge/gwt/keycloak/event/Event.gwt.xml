@@ -1,8 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <module>
-
+  <inherits name='org.realityforge.gwt.keycloak.Keycloak'/>
   <inherits name='com.google.web.bindery.event.Event'/>
-  <inherits name='com.google.gwt.core.Core'/>
 
   <source path=''/>
 </module>
