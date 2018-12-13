@@ -1,3 +1,7 @@
+## Unreleased
+
+* Remove deployment from TravisCI infrastructure as it is no longer feasible.
+
 ## 0.4
 
 * Add `TokenCache` and `TokenCachingListener` classes to cache tokens in browser storage while valid.
