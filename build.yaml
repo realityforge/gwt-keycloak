@@ -5,10 +5,10 @@ repositories:
 artifacts:
   jsinterop_base: org.realityforge.com.google.jsinterop:base:jar:1.0.0-b2-e6d791f
 
-  elemental2_core: org.realityforge.com.google.elemental2:elemental2-core:jar:1.0.0-b18-f3472e7
-  elemental2_dom: org.realityforge.com.google.elemental2:elemental2-dom:jar:1.0.0-b18-f3472e7
-  elemental2_promise: org.realityforge.com.google.elemental2:elemental2-promise:jar:1.0.0-b18-f3472e7
-  elemental2_webstorage: org.realityforge.com.google.elemental2:elemental2-webstorage:jar:1.0.0-b18-f3472e7
+  elemental2_core: org.realityforge.com.google.elemental2:elemental2-core:jar:1.0.0-b19-fb227e3
+  elemental2_dom: org.realityforge.com.google.elemental2:elemental2-dom:jar:1.0.0-b19-fb227e3
+  elemental2_promise: org.realityforge.com.google.elemental2:elemental2-promise:jar:1.0.0-b19-fb227e3
+  elemental2_webstorage: org.realityforge.com.google.elemental2:elemental2-webstorage:jar:1.0.0-b19-fb227e3
 
   javax_annotation: org.realityforge.javax.annotation:javax.annotation:jar:1.0.0
   gwt_user: com.google.gwt:gwt-user:jar:2.8.2
