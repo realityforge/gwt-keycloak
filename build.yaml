@@ -1,6 +1,6 @@
 repositories:
   remote:
-   - http://repo1.maven.org/maven2
+   - https://repo1.maven.org/maven2
 
 artifacts:
   jsinterop_base: org.realityforge.com.google.jsinterop:base:jar:1.0.0-b2-e6d791f
