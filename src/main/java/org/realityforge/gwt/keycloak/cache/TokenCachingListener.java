@@ -13,27 +13,18 @@ public class TokenCachingListener
   extends KeycloakListenerAdapter
   implements KeycloakListener
 {
-  /**
-   * {@inheritDoc}
-   */
   @Override
   public void onAuthRefreshSuccess( @Nonnull final Keycloak keycloak )
   {
     TokenCache.saveTokens( keycloak );
   }
 
-  /**
-   * {@inheritDoc}
-   */
   @Override
   public void onAuthSuccess( @Nonnull final Keycloak keycloak )
   {
     TokenCache.saveTokens( keycloak );
   }
 
-  /**
-   * {@inheritDoc}
-   */
   @Override
   public void onReady( @Nonnull final Keycloak keycloak, final boolean authenticated )
   {
@@ -47,27 +38,18 @@ public class TokenCachingListener
     }
   }
 
-  /**
-   * {@inheritDoc}
-   */
   @Override
   public void onAuthRefreshError( @Nonnull final Keycloak keycloak )
   {
     TokenCache.resetSavedTokens( keycloak );
   }
 
-  /**
-   * {@inheritDoc}
-   */
   @Override
   public void beforeAuthLogout( @Nonnull final Keycloak keycloak )
   {
     TokenCache.resetSavedTokens( keycloak );
   }
 
-  /**
-   * {@inheritDoc}
-   */
   @Override
   public void onAuthLogout( @Nonnull final Keycloak keycloak )
   {

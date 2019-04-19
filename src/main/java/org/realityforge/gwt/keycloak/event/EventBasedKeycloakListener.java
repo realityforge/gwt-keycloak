@@ -106,72 +106,48 @@ public class EventBasedKeycloakListener
     return _eventBus.addHandler( ReadyEvent.getType(), handler );
   }
 
-  /**
-   * {@inheritDoc}
-   */
   @Override
   public final void onAuthError( @Nonnull final Keycloak keycloak )
   {
     _eventBus.fireEventFromSource( new AuthSuccessEvent( keycloak ), keycloak );
   }
 
-  /**
-   * {@inheritDoc}
-   */
   @Override
   public final void beforeAuthLogout( @Nonnull final Keycloak keycloak )
   {
     _eventBus.fireEventFromSource( new BeforeAuthLogoutEvent( keycloak ), keycloak );
   }
 
-  /**
-   * {@inheritDoc}
-   */
   @Override
   public final void onAuthLogout( @Nonnull final Keycloak keycloak )
   {
     _eventBus.fireEventFromSource( new AuthLogoutEvent( keycloak ), keycloak );
   }
 
-  /**
-   * {@inheritDoc}
-   */
   @Override
   public final void onAuthRefreshError( @Nonnull final Keycloak keycloak )
   {
     _eventBus.fireEventFromSource( new AuthRefreshErrorEvent( keycloak ), keycloak );
   }
 
-  /**
-   * {@inheritDoc}
-   */
   @Override
   public final void onAuthRefreshSuccess( @Nonnull final Keycloak keycloak )
   {
     _eventBus.fireEventFromSource( new AuthRefreshSuccessEvent( keycloak ), keycloak );
   }
 
-  /**
-   * {@inheritDoc}
-   */
   @Override
   public final void onAuthSuccess( @Nonnull final Keycloak keycloak )
   {
     _eventBus.fireEventFromSource( new AuthSuccessEvent( keycloak ), keycloak );
   }
 
-  /**
-   * {@inheritDoc}
-   */
   @Override
   public final void onTokenExpired( @Nonnull final Keycloak keycloak )
   {
     _eventBus.fireEventFromSource( new TokenExpiredEvent( keycloak ), keycloak );
   }
 
-  /**
-   * {@inheritDoc}
-   */
   @Override
   public final void onReady( @Nonnull final Keycloak keycloak, final boolean authenticated )
   {
