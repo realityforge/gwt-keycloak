@@ -9,6 +9,6 @@ install:
 - rvm use 2.3.1
 - gem install bundler
 - bundle install
-script: buildr clean package mcrt:publish_if_tagged
+script: buildr clean package
 git:
   depth: false
