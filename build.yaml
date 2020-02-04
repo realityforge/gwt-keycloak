@@ -1,8 +1,11 @@
 repositories:
   remote:
    - https://repo.maven.apache.org/maven2
+   - https://stocksoftware.jfrog.io/stocksoftware/maven2
 
 artifacts:
+  idea_codestyle: au.com.stocksoftware.idea.codestyle:idea-codestyle:xml:1.14
+
   jsinterop_base: com.google.jsinterop:base:jar:1.0.0
 
   elemental2_core: org.realityforge.com.google.elemental2:elemental2-core:jar:2.27
