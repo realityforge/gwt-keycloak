@@ -2,6 +2,7 @@
 
 * Remove deployment from TravisCI infrastructure as it is no longer feasible.
 * Remove `{@inheritDoc}` as it only explicitly indicates that the default behaviour at the expense of significant visual clutter.
+* Change the API for attaching listeners to the `Keycloak` instance. Rather than `Keycloak.setListener(...)` class to allow multiple listeners to be notified when keycloak events occur. This is a breaking API change.
 
 ## 0.4
 

@@ -20,7 +20,7 @@ public class Keycloak
   private final LogoutOptions _logoutOptions = new LogoutOptions();
 
   @Nonnull
-  private KeycloakListener _listener = NullKeycloakListener.LISTENER;
+  private final KeycloakListenerBroker _broker = new KeycloakListenerBroker();
   @Nonnull
   private final KeycloakImpl _impl;
   @Nonnull
@@ -125,19 +125,24 @@ public class Keycloak
    * @return the listener associated with the Keycloak instance.
    */
   @Nonnull
-  public KeycloakListener getListener()
+  private KeycloakListener getListener()
   {
-    return _listener;
+    return _broker.getListener();
   }
 
   /**
-   * Set the listener to receive messages from the Keycloak instance.
+   * Add a listener to receive messages from the Keycloak instance.
    *
    * @param listener the listener to receive messages from the Keycloak instance.
    */
-  public final void setListener( @Nullable final KeycloakListener listener )
+  public void addKeycloakListener( @Nonnull final KeycloakListener listener )
   {
-    _listener = null == listener ? NullKeycloakListener.LISTENER : listener;
+    _broker.addKeycloakListener( listener );
+  }
+
+  public void removeKeycloakListener( @Nonnull final KeycloakListener listener )
+  {
+    _broker.removeKeycloakListener( listener );
   }
 
   @Nonnull
@@ -381,6 +386,7 @@ public class Keycloak
       return impl;
     }-*/;
 
+    @SuppressWarnings( "ProtectedMemberInFinalClass" )
     protected KeycloakImpl()
     {
     }
