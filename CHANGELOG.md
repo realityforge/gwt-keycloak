@@ -1,6 +1,8 @@
 # Change Log
 
-### Unreleased
+### [v0.05](https://github.com/realityforge/gwt-keycloak/tree/v0.05) (2020-02-04) · [Full Changelog](https://github.com/realityforge/gwt-keycloak/compare/v0.04...v0.05)
+
+Changes in this release:
 
 * Remove deployment from TravisCI infrastructure as it is no longer feasible.
 * Remove `{@inheritDoc}` as it only explicitly indicates that the default behaviour at the expense of significant visual clutter.
