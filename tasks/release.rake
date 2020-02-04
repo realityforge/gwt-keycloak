@@ -77,7 +77,6 @@ CONTENT
       IO.write(setup_filename, IO.read(setup_filename).
         gsub("<version>#{ENV['PREVIOUS_PRODUCT_VERSION']}</version>", "<version>#{ENV['PRODUCT_VERSION']}</version>"))
       sh 'git reset 2>&1 1> /dev/null'
-      sh "git add #{filename}"
       sh "git add #{setup_filename}"
       # Zapwhite only runs against files added to git so we have to do this dance after adding files
       `bundle exec zapwhite`
