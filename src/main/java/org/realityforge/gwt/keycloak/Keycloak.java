@@ -1,6 +1,8 @@
 package org.realityforge.gwt.keycloak;
 
 import com.google.gwt.core.client.JavaScriptObject;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Logger;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -14,11 +16,9 @@ import javax.annotation.Nullable;
 public class Keycloak
 {
   private static final Logger LOG = Logger.getLogger( Keycloak.class.getName() );
-
   private final InitOptions _initOptions = new InitOptions();
   private final LoginOptions _loginOptions = new LoginOptions();
   private final LogoutOptions _logoutOptions = new LogoutOptions();
-
   @Nonnull
   private final KeycloakListenerBroker _broker = new KeycloakListenerBroker();
   @Nonnull
@@ -27,6 +27,11 @@ public class Keycloak
   private final String _key;
   @Nonnull
   private final String _configURL;
+  /**
+   * Actions pending a valid token.
+   */
+  @Nonnull
+  private static List<Runnable> _actions = new ArrayList<>();
 
   public Keycloak( @Nonnull final String key, @Nonnull final String configURL )
   {
@@ -208,7 +213,6 @@ public class Keycloak
                      options != null ? options.getLocale() : null );
   }
 
-
   /**
    * Redirects to logout.
    */
@@ -251,6 +255,22 @@ public class Keycloak
   public void updateToken( @Nullable final Runnable successCallback )
   {
     updateToken( 0, successCallback );
+  }
+
+  /**
+   * Ensure that the token does not expire in next minValiditySeconds or update token and execute action.
+   * Actions are queued until valid tokens are received and then executed.
+   *
+   * @param minValiditySeconds the minimum token validity.
+   * @param action the action to perform once a valid token is present.
+   */
+  public void updateTokenAndExecute( final int minValiditySeconds, @Nonnull final Runnable action )
+  {
+    _actions.add( action );
+    updateToken( minValiditySeconds, () -> {
+      _actions.forEach( Runnable::run );
+      _actions.clear();
+    } );
   }
 
   /**
@@ -349,42 +369,35 @@ public class Keycloak
     extends JavaScriptObject
   {
     static native KeycloakImpl create( @Nonnull final Keycloak keycloak, @Nonnull final String configURL )
-    /*-{
+      /*-{
 
-      var impl = $wnd.Keycloak( configURL );
+        var impl = $wnd.Keycloak(configURL);
 
-      impl.wrapper = keycloak;
-      impl.onReady = $entry( function ( authenticated )
-                             {
-                               impl.wrapper.@org.realityforge.gwt.keycloak.Keycloak::onReady(*)( authenticated );
-                             } );
-      impl.onAuthSuccess = $entry( function ()
-                                   {
-                                     impl.wrapper.@org.realityforge.gwt.keycloak.Keycloak::onAuthSuccess()();
-                                   } );
-      impl.onAuthError = $entry( function ()
-                                 {
-                                   impl.wrapper.@org.realityforge.gwt.keycloak.Keycloak::onAuthError()();
-                                 } );
-      impl.onAuthRefreshSuccess = $entry( function ()
-                                          {
-                                            impl.wrapper.@org.realityforge.gwt.keycloak.Keycloak::onAuthRefreshSuccess()();
-                                          } );
-      impl.onAuthRefreshError = $entry( function ()
-                                        {
-                                          impl.wrapper.@org.realityforge.gwt.keycloak.Keycloak::onAuthRefreshError()();
-                                        } );
-      impl.onAuthLogout = $entry( function ()
-                                  {
-                                    impl.wrapper.@org.realityforge.gwt.keycloak.Keycloak::onAuthLogout()();
-                                  } );
-      impl.onTokenExpired = $entry( function ()
-                                    {
-                                      impl.wrapper.@org.realityforge.gwt.keycloak.Keycloak::onTokenExpired()();
-                                    } );
+        impl.wrapper = keycloak;
+        impl.onReady = $entry(function(authenticated) {
+          impl.wrapper.@org.realityforge.gwt.keycloak.Keycloak::onReady(*)(authenticated);
+        });
+        impl.onAuthSuccess = $entry(function() {
+          impl.wrapper.@org.realityforge.gwt.keycloak.Keycloak::onAuthSuccess()();
+        });
+        impl.onAuthError = $entry(function() {
+          impl.wrapper.@org.realityforge.gwt.keycloak.Keycloak::onAuthError()();
+        });
+        impl.onAuthRefreshSuccess = $entry(function() {
+          impl.wrapper.@org.realityforge.gwt.keycloak.Keycloak::onAuthRefreshSuccess()();
+        });
+        impl.onAuthRefreshError = $entry(function() {
+          impl.wrapper.@org.realityforge.gwt.keycloak.Keycloak::onAuthRefreshError()();
+        });
+        impl.onAuthLogout = $entry(function() {
+          impl.wrapper.@org.realityforge.gwt.keycloak.Keycloak::onAuthLogout()();
+        });
+        impl.onTokenExpired = $entry(function() {
+          impl.wrapper.@org.realityforge.gwt.keycloak.Keycloak::onTokenExpired()();
+        });
 
-      return impl;
-    }-*/;
+        return impl;
+      }-*/;
 
     @SuppressWarnings( "ProtectedMemberInFinalClass" )
     protected KeycloakImpl()
@@ -409,7 +422,6 @@ public class Keycloak
       return this.tokenParsed;
     }-*/;
 
-
     @Nullable
     native String getIDToken() /*-{
       return this.idToken;
@@ -429,7 +441,7 @@ public class Keycloak
     }-*/;
 
     native boolean isTokenExpired( final int minValiditySeconds ) /*-{
-      return this.isTokenExpired( minValiditySeconds );
+      return this.isTokenExpired(minValiditySeconds);
     }-*/;
 
     native void init( @Nullable final String onLoad,
@@ -442,38 +454,31 @@ public class Keycloak
                       @Nonnull final String responseMode,
                       @Nonnull final String flow ) /*-{
       var options = {};
-      if ( null != onLoad )
-      {
+      if (null != onLoad) {
         options.onLoad = onLoad;
       }
-      if ( null != token )
-      {
+      if (null != token) {
         options.token = token;
       }
-      if ( null != refreshToken )
-      {
+      if (null != refreshToken) {
         options.refreshToken = refreshToken;
       }
-      if ( null != idToken )
-      {
+      if (null != idToken) {
         options.idToken = idToken;
       }
-      if ( null != timeSkew )
-      {
+      if (null != timeSkew) {
         options.timeSkew = timeSkew;
       }
-      if ( null != checkLoginIframe )
-      {
+      if (null != checkLoginIframe) {
         options.checkLoginIframe = checkLoginIframe;
       }
       options.checkLoginIframeInterval = checkLoginIframeInterval;
-      if ( null != checkLoginIframe )
-      {
+      if (null != checkLoginIframe) {
         options.checkLoginIframe = checkLoginIframe;
       }
       options.responseMode = responseMode;
       options.flow = flow;
-      this.init( options );
+      this.init(options);
     }-*/;
 
     native void login( @Nullable final String redirectUri,
@@ -482,40 +487,33 @@ public class Keycloak
                        @Nullable final String action,
                        @Nullable final String locale ) /*-{
       var options = {};
-      if ( null != redirectUri )
-      {
+      if (null != redirectUri) {
         options.redirectUri = redirectUri;
       }
-      if ( null != prompt )
-      {
+      if (null != prompt) {
         options.prompt = prompt;
       }
-      if ( null != loginHint )
-      {
+      if (null != loginHint) {
         options.loginHint = loginHint;
       }
-      if ( null != loginHint )
-      {
+      if (null != loginHint) {
         options.loginHint = loginHint;
       }
-      if ( null != action )
-      {
+      if (null != action) {
         options.action = action;
       }
-      if ( null != locale )
-      {
+      if (null != locale) {
         options.locale = locale;
       }
-      this.login( options );
+      this.login(options);
     }-*/;
 
     native void logout( @Nullable final String redirectUri ) /*-{
       var options = {};
-      if ( null != redirectUri )
-      {
+      if (null != redirectUri) {
         options.redirectUri = redirectUri;
       }
-      this.logout( options );
+      this.logout(options);
     }-*/;
 
     native void updateToken( final int minValiditySeconds,
@@ -523,16 +521,14 @@ public class Keycloak
                              @Nullable final Runnable failureCallback ) /*-{
       var keycloak = this;
       var onSuccess =
-        $entry( function ()
-                {
-                  keycloak.wrapper.@org.realityforge.gwt.keycloak.Keycloak::onTokenUpdateSuccess(*)( successCallback );
-                } );
+        $entry(function() {
+          keycloak.wrapper.@org.realityforge.gwt.keycloak.Keycloak::onTokenUpdateSuccess(*)(successCallback);
+        });
       var onFailure =
-        $entry( function ()
-                {
-                  keycloak.wrapper.@org.realityforge.gwt.keycloak.Keycloak::onTokenUpdateFailure(*)( failureCallback );
-                } );
-      this.updateToken( minValiditySeconds ).success( onSuccess ).error( onFailure );
+        $entry(function() {
+          keycloak.wrapper.@org.realityforge.gwt.keycloak.Keycloak::onTokenUpdateFailure(*)(failureCallback);
+        });
+      this.updateToken(minValiditySeconds).success(onSuccess).error(onFailure);
     }-*/;
 
     /**
