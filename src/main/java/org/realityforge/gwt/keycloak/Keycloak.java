@@ -72,7 +72,7 @@ public class Keycloak
    * The parsed token as a JavaScript object.
    */
   @SuppressWarnings( "unchecked" )
-  public <T extends Object> T getParsedToken()
+  public <T> T getParsedToken()
   {
     return (T) getImpl().getParsedToken();
   }
@@ -97,7 +97,7 @@ public class Keycloak
    * The parsed id token as a JavaScript object.
    */
   @SuppressWarnings( "unchecked" )
-  public <T extends Object> T getParsedIDToken()
+  public <T> T getParsedIDToken()
   {
     return (T) getImpl().getParsedIDToken();
   }
@@ -114,7 +114,7 @@ public class Keycloak
    * The parsed refresh token as a JavaScript object.
    */
   @SuppressWarnings( "unchecked" )
-  public <T extends Object> T getParsedRefreshToken()
+  public <T> T getParsedRefreshToken()
   {
     return (T) getImpl().getParsedRefreshToken();
   }
