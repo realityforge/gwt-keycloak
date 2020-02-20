@@ -1,6 +1,8 @@
 # Change Log
 
-### Unreleased
+### [v0.7](https://github.com/realityforge/gwt-keycloak/tree/v0.7) (2020-02-20) · [Full Changelog](https://github.com/realityforge/gwt-keycloak/compare/v0.6...v0.7)
+
+Changes in this release:
 
 * Specify a `Keycloak.MIN_TOKEN_VALIDITY_SECONDS` that has a reasonable default for minimum validity and change `Keycloak.updateToken(Runnable)` to use default value rather than `0`.
 * Add `Keycloak.updateTokenAndExecute(Runnable)` override that uses `Keycloak.MIN_TOKEN_VALIDITY_SECONDS` for minimum validity time.
