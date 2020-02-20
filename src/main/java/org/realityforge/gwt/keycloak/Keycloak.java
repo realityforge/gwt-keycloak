@@ -16,6 +16,11 @@ import javax.annotation.Nullable;
 public class Keycloak
 {
   private static final Logger LOG = Logger.getLogger( Keycloak.class.getName() );
+  /**
+   * The default minimum validity time in seconds.
+   * A reasonable time under which we expect a remote call to reach the server with some degree of safety.
+   */
+  private static final int MIN_TOKEN_VALIDITY_SECONDS = 15;
   private final InitOptions _initOptions = new InitOptions();
   private final LoginOptions _loginOptions = new LoginOptions();
   private final LogoutOptions _logoutOptions = new LogoutOptions();
@@ -250,11 +255,11 @@ public class Keycloak
   }
 
   /**
-   * Invokes {@link #updateToken(int, Runnable)} with 0 for minValiditySeconds.
+   * Invokes {@link #updateToken(int, Runnable)} with {@link #MIN_TOKEN_VALIDITY_SECONDS} for minValiditySeconds.
    */
   public void updateToken( @Nullable final Runnable successCallback )
   {
-    updateToken( 0, successCallback );
+    updateToken( MIN_TOKEN_VALIDITY_SECONDS, successCallback );
   }
 
   /**

@@ -2,6 +2,8 @@
 
 ### Unreleased
 
+* Specify a `Keycloak.MIN_TOKEN_VALIDITY_SECONDS` that has a reasonable default for minimum validity and change `Keycloak.updateToken(Runnable)` to use default value rather than `0`.
+
 ### [v0.6](https://github.com/realityforge/gwt-keycloak/tree/v0.6) (2020-02-20) · [Full Changelog](https://github.com/realityforge/gwt-keycloak/compare/v0.5...v0.6)
 
 Changes in this release:
