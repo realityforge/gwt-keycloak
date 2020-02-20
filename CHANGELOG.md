@@ -1,6 +1,8 @@
 # Change Log
 
-### Unreleased
+### [v0.6](https://github.com/realityforge/gwt-keycloak/tree/v0.6) (2020-02-20) · [Full Changelog](https://github.com/realityforge/gwt-keycloak/compare/v0.5...v0.6)
+
+Changes in this release:
 
 * Backport `Keycloak.updateTokenAndExecute(...)` which was implemented in some variation for every downstream project.
 
