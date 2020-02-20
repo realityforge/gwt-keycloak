@@ -279,6 +279,20 @@ public class Keycloak
   }
 
   /**
+   * Invokes {@link #updateTokenAndExecute(int, Runnable)} with {@link #MIN_TOKEN_VALIDITY_SECONDS} for minValiditySeconds.
+   *
+   * @param action the action to perform once a valid token is present.
+   */
+  public void updateTokenAndExecute(  @Nonnull final Runnable action )
+  {
+    _actions.add( action );
+    updateToken( MIN_TOKEN_VALIDITY_SECONDS, () -> {
+      _actions.forEach( Runnable::run );
+      _actions.clear();
+    } );
+  }
+
+  /**
    * Returns true if the token has less than minValiditySeconds seconds left before it expires.
    */
   public boolean isTokenExpired( final int minValiditySeconds )
