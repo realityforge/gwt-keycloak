@@ -10,7 +10,7 @@ import javax.annotation.Nullable;
  *
  * Derived from information describing the <a href="https://keycloak.gitbooks.io/securing-client-applications-guide/content/v/2.0/topics/oidc/javascript-adapter.html">Javascript Adapter</a>.
  */
-@SuppressWarnings( "WeakerAccess" )
+@SuppressWarnings( { "WeakerAccess", "unused" } )
 public class Keycloak
 {
   private static final Logger LOG = Logger.getLogger( Keycloak.class.getName() );
