@@ -14,5 +14,5 @@ artifacts:
   elemental2_webstorage: org.realityforge.com.google.elemental2:elemental2-webstorage:jar:2.27
 
   javax_annotation: org.realityforge.javax.annotation:javax.annotation:jar:1.0.1
-  gwt_user: org.realityforge.com.google.gwt:gwt-user:jar:2.8.2-v20191108
-  gwt_dev: org.realityforge.com.google.gwt:gwt-dev:jar:2.8.2-v20191108
+  gwt_user: com.google.gwt:gwt-user:jar:2.9.0
+  gwt_dev: com.google.gwt:gwt-dev:jar:2.9.0
