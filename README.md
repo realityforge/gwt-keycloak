@@ -1,6 +1,6 @@
 # gwt-keycloak
 
-[![Build Status](https://secure.travis-ci.org/realityforge/gwt-keycloak.svg?branch=master)](http://travis-ci.org/realityforge/gwt-keycloak)
+[![Build Status](https://api.travis-ci.com/realityforge/gwt-keycloak.svg?branch=master)](http://travis-ci.org/realityforge/gwt-keycloak)
 [<img src="https://img.shields.io/maven-central/v/org.realityforge.gwt.keycloak/gwt-keycloak.svg?label=latest%20release"/>](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22org.realityforge.gwt.keycloak%22%20a%3A%22gwt-keycloak%22)
 
 A simple library to provide keycloak support to GWT. The library wraps and adapts the
