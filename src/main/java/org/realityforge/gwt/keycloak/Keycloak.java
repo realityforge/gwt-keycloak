@@ -515,9 +515,6 @@ public class Keycloak
       if (null != loginHint) {
         options.loginHint = loginHint;
       }
-      if (null != loginHint) {
-        options.loginHint = loginHint;
-      }
       if (null != action) {
         options.action = action;
       }
