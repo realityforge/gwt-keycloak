@@ -4,7 +4,7 @@
 [<img src="https://img.shields.io/maven-central/v/org.realityforge.gwt.keycloak/gwt-keycloak.svg?label=latest%20release"/>](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22org.realityforge.gwt.keycloak%22%20a%3A%22gwt-keycloak%22)
 
 A simple library to provide keycloak support to GWT. The library wraps and adapts the
-[keycloak adapter](https://www.keycloak.org/docs/3.0/securing_apps/topics/oidc/javascript-adapter.html)
+[keycloak adapter](https://www.keycloak.org/docs/latest/securing_apps/index.html#_javascript_adapter)
 that is deployed on the keycloak server.
 
 ## Quick Start
