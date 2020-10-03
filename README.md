@@ -117,4 +117,4 @@ keycloak.init();
 
 ## Appendix
 
-* [Keycloak Javascript Adapter](https://keycloak.gitbooks.io/securing-client-applications-guide/content/v/2.0/topics/oidc/javascript-adapter.html)
+* [Keycloak Javascript Adapter](https://www.keycloak.org/docs/latest/securing_apps/index.html#_javascript_adapter)
