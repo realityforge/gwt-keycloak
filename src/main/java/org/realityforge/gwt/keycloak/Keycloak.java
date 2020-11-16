@@ -189,8 +189,8 @@ public class Keycloak
     LOG.info( "Initializing Keycloak instance for client " + _key );
     final OnLoadAction onLoadAction = options.getOnLoadAction();
     final String onLoad =
-      onLoadAction == OnLoadAction.LOGIN_REQUIRED ? "login-required" :
-      onLoadAction == OnLoadAction.CHECK_SSO ? "check-sso" :
+      OnLoadAction.LOGIN_REQUIRED == onLoadAction ? "login-required" :
+      OnLoadAction.CHECK_SSO == onLoadAction ? "check-sso" :
       null;
     getImpl().init( onLoad,
                     options.getToken(),
