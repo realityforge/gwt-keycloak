@@ -15,6 +15,7 @@ import javax.annotation.Nullable;
 @SuppressWarnings( { "WeakerAccess", "unused" } )
 public class Keycloak
 {
+  @Nonnull
   private static final Logger LOG = Logger.getLogger( Keycloak.class.getName() );
   /**
    * The default minimum validity time in seconds.
