@@ -1,5 +1,7 @@
 # Change Log
 
+### Unreleased
+
 ### [v0.8](https://github.com/realityforge/gwt-keycloak/tree/v0.8) (2020-11-16) · [Full Changelog](https://github.com/realityforge/gwt-keycloak/compare/v0.7...v0.8)
 
 Changes in this release:
