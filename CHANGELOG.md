@@ -3,6 +3,7 @@
 ### Unreleased
 
 * Remove some duplicate code when preparing login.
+* Remove unused class `NullKeycloakListener`.
 
 ### [v0.7](https://github.com/realityforge/gwt-keycloak/tree/v0.7) (2020-02-20) · [Full Changelog](https://github.com/realityforge/gwt-keycloak/compare/v0.6...v0.7)
 
