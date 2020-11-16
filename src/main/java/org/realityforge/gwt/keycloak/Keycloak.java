@@ -36,7 +36,7 @@ public class Keycloak
    * Actions pending a valid token.
    */
   @Nonnull
-  private static List<Runnable> _actions = new ArrayList<>();
+  private List<Runnable> _actions = new ArrayList<>();
 
   public Keycloak( @Nonnull final String key, @Nonnull final String configURL )
   {
