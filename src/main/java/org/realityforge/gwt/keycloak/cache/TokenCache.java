@@ -17,7 +17,9 @@ import org.realityforge.gwt.keycloak.Keycloak;
  */
 public final class TokenCache
 {
+  @Nonnull
   private static final String AUTH_TOKEN_SUFFIX = ".auth_token";
+  @Nonnull
   private static final String REFRESH_TOKEN_SUFFIX = ".refresh_token";
 
   private TokenCache()
