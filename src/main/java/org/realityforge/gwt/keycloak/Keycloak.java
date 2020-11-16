@@ -267,7 +267,7 @@ public class Keycloak
    * Actions are queued until valid tokens are received and then executed.
    *
    * @param minValiditySeconds the minimum token validity.
-   * @param action the action to perform once a valid token is present.
+   * @param action             the action to perform once a valid token is present.
    */
   public void updateTokenAndExecute( final int minValiditySeconds, @Nonnull final Runnable action )
   {
@@ -283,7 +283,7 @@ public class Keycloak
    *
    * @param action the action to perform once a valid token is present.
    */
-  public void updateTokenAndExecute(  @Nonnull final Runnable action )
+  public void updateTokenAndExecute( @Nonnull final Runnable action )
   {
     _actions.add( action );
     updateToken( MIN_TOKEN_VALIDITY_SECONDS, () -> {
