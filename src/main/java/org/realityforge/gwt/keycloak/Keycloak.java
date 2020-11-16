@@ -21,8 +21,11 @@ public class Keycloak
    * A reasonable time under which we expect a remote call to reach the server with some degree of safety.
    */
   private static final int MIN_TOKEN_VALIDITY_SECONDS = 15;
+  @Nonnull
   private final InitOptions _initOptions = new InitOptions();
+  @Nonnull
   private final LoginOptions _loginOptions = new LoginOptions();
+  @Nonnull
   private final LogoutOptions _logoutOptions = new LogoutOptions();
   @Nonnull
   private final KeycloakListenerBroker _broker = new KeycloakListenerBroker();
