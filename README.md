@@ -16,7 +16,7 @@ into the build system. i.e.
 <dependency>
    <groupId>org.realityforge.gwt.keycloak</groupId>
    <artifactId>gwt-keycloak</artifactId>
-   <version>0.8</version>
+   <version>0.9</version>
    <scope>provided</scope>
 </dependency>
 ```
