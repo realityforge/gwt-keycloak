@@ -21,7 +21,7 @@ public class Keycloak
    * The default minimum validity time in seconds.
    * A reasonable time under which we expect a remote call to reach the server with some degree of safety.
    */
-  private static final int MIN_TOKEN_VALIDITY_SECONDS = 15;
+  private static final int MIN_TOKEN_VALIDITY_SECONDS = 60;
   @Nonnull
   private final InitOptions _initOptions = new InitOptions();
   @Nonnull

@@ -2,6 +2,8 @@
 
 ### Unreleased
 
+* Change `Keycloak.MIN_TOKEN_VALIDITY_SECONDS` from `15s` to `60s`. It seems that the skew of the clocks between the browser and the keycloak server can be significant in some scenarios. Increasing the minimum time decreases the chance that the skew could cause an expired token to be used by the client and rejected by the server. This does increase the number of validations and re-requests that can occur but the additional safety is considered an acceptable tradeoff.
+
 ### [v0.8](https://github.com/realityforge/gwt-keycloak/tree/v0.8) (2020-11-16) · [Full Changelog](https://github.com/realityforge/gwt-keycloak/compare/v0.7...v0.8)
 
 Changes in this release:
