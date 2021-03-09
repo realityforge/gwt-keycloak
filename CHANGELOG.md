@@ -2,6 +2,8 @@
 
 ### Unreleased
 
+* Upgrade the `au.com.stocksoftware.idea.codestyle` artifact to version `1.17`.
+
 ### [v0.9](https://github.com/realityforge/gwt-keycloak/tree/v0.9) (2021-01-12) · [Full Changelog](https://github.com/realityforge/gwt-keycloak/compare/v0.8...v0.9)
 
 Changes in this release:
