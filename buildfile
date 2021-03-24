@@ -16,14 +16,12 @@ define 'gwt-keycloak' do
   pom.add_apache_v2_license
   pom.add_github_project('realityforge/gwt-keycloak')
   pom.add_developer('realityforge', 'Peter Donald')
-  pom.provided_dependencies.concat [:javax_annotation, :gwt_user]
+  pom.provided_dependencies.concat [:javax_annotation, :jetbrains_annotations, :gwt_user]
 
   compile.with :jsinterop_base,
-               :elemental2_core,
-               :elemental2_dom,
-               :elemental2_promise,
-               :elemental2_webstorage,
+               :akasha,
                :javax_annotation,
+               :jetbrains_annotations,
                :gwt_user
 
   package(:jar).include("#{_(:source, :main, :java)}/*")

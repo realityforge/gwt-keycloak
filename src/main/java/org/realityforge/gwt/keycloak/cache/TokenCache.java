@@ -1,10 +1,10 @@
 package org.realityforge.gwt.keycloak.cache;
 
-import elemental2.dom.DomGlobal;
-import elemental2.webstorage.Storage;
-import elemental2.webstorage.WebStorageWindow;
+import akasha.Global;
+import akasha.Storage;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import jsinterop.base.Js;
 import org.realityforge.gwt.keycloak.InitOptions;
 import org.realityforge.gwt.keycloak.Keycloak;
 
@@ -78,12 +78,11 @@ public final class TokenCache
 
   private static void setSavedToken( @Nonnull final String key, @Nullable final String value )
   {
-    final WebStorageWindow window = WebStorageWindow.of( DomGlobal.window );
-    final Storage storage = null != window.localStorage ? window.localStorage : window.sessionStorage;
-    if ( null == storage )
+    if ( !Js.global().has( "localStorage" ) )
     {
       return;
     }
+    final Storage storage = Global.localStorage();
     if ( null == value )
     {
       storage.removeItem( key );
@@ -97,8 +96,6 @@ public final class TokenCache
   @Nullable
   private static String getSavedToken( @Nonnull final String key )
   {
-    final WebStorageWindow window = WebStorageWindow.of( DomGlobal.window );
-    final Storage storage = null != window.localStorage ? window.localStorage : window.sessionStorage;
-    return null != storage ? storage.getItem( key ) : null;
+    return !Js.global().has( "localStorage" ) ? null : Global.localStorage().getItem( key );
   }
 }
