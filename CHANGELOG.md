@@ -1,6 +1,8 @@
 # Change Log
 
-### Unreleased
+### [v0.10](https://github.com/realityforge/gwt-keycloak/tree/v0.10) (2021-03-24) · [Full Changelog](https://github.com/realityforge/gwt-keycloak/compare/v0.9...v0.10)
+
+Changes in this release:
 
 * Upgrade the `au.com.stocksoftware.idea.codestyle` artifact to version `1.17`.
 * Remove infrastructure supporting integration with the historic GWT "events" packages.
