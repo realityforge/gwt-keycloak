@@ -2,6 +2,8 @@
 
 ### Unreleased
 
+* Upgrade the `org.realityforge.akasha` artifact to version `0.04`.
+
 ### [v0.10](https://github.com/realityforge/gwt-keycloak/tree/v0.10) (2021-03-24) · [Full Changelog](https://github.com/realityforge/gwt-keycloak/compare/v0.9...v0.10)
 
 Changes in this release:
