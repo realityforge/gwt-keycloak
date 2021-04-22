@@ -1,5 +1,7 @@
 # Change Log
 
+### Unreleased
+
 ### [v0.11](https://github.com/realityforge/gwt-keycloak/tree/v0.11) (2021-04-22) · [Full Changelog](https://github.com/spritz/spritz/compare/v0.10...v0.11)
 
 Changes in this release:
