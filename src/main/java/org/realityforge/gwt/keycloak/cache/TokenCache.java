@@ -1,7 +1,7 @@
 package org.realityforge.gwt.keycloak.cache;
 
-import akasha.Global;
 import akasha.Storage;
+import akasha.WindowGlobal;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import jsinterop.base.Js;
@@ -78,24 +78,28 @@ public final class TokenCache
 
   private static void setSavedToken( @Nonnull final String key, @Nullable final String value )
   {
-    if ( !Js.global().has( "localStorage" ) )
+    if ( isLocalStoragePresent() )
     {
-      return;
-    }
-    final Storage storage = Global.localStorage();
-    if ( null == value )
-    {
-      storage.removeItem( key );
-    }
-    else
-    {
-      storage.setItem( key, value );
+      final Storage storage = WindowGlobal.localStorage();
+      if ( null == value )
+      {
+        storage.removeItem( key );
+      }
+      else
+      {
+        storage.setItem( key, value );
+      }
     }
   }
 
   @Nullable
   private static String getSavedToken( @Nonnull final String key )
   {
-    return !Js.global().has( "localStorage" ) ? null : Global.localStorage().getItem( key );
+    return isLocalStoragePresent() ? WindowGlobal.localStorage().getItem( key ) : null;
+  }
+
+  private static boolean isLocalStoragePresent()
+  {
+    return Js.global().has( "localStorage" );
   }
 }
