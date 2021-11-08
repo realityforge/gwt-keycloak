@@ -2,7 +2,7 @@
 
 ### Unreleased
 
-* Update the `org.realityforge.akasha` artifacts to version `0.28`.
+* Update the `org.realityforge.akasha` artifacts to version `0.29`.
 
 ### [v0.12](https://github.com/realityforge/gwt-keycloak/tree/v0.12) (2021-07-27) · [Full Changelog](https://github.com/spritz/spritz/compare/v0.11...v0.12)
 
