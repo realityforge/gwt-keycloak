@@ -395,7 +395,7 @@ public class Keycloak
     static native KeycloakImpl create( @Nonnull final Keycloak keycloak, @Nonnull final String configURL )
       /*-{
 
-        var impl = $wnd.Keycloak(configURL);
+        var impl = new $wnd.Keycloak(configURL);
 
         impl.wrapper = keycloak;
         impl.onReady = $entry(function(authenticated) {
@@ -549,7 +549,8 @@ public class Keycloak
         $entry(function() {
           keycloak.wrapper.@org.realityforge.gwt.keycloak.Keycloak::onTokenUpdateFailure(*)(failureCallback);
         });
-      this.updateToken(minValiditySeconds).success(onSuccess).error(onFailure);
+      this.updateToken(minValiditySeconds)
+      .then(onSuccess);
     }-*/;
 
     /**
