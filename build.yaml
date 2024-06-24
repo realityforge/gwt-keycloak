@@ -1,6 +1,5 @@
 repositories:
   remote:
-   - https://stocksoftware.jfrog.io/stocksoftware/maven2
    - https://repo.maven.apache.org/maven2
 
 artifacts:
