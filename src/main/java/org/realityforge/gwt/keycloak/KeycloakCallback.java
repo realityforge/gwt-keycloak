@@ -4,6 +4,7 @@ import jsinterop.annotations.JsFunction;
 
 @JsFunction
 @FunctionalInterface
-public interface KeycloakCallback {
+public interface KeycloakCallback
+{
     void onInvoke();
 }
