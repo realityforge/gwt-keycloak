@@ -85,21 +85,27 @@ public class KeycloakImpl
     @JsProperty( name = "onReady" )
     @JsNullable
     public KeycloakAuthenticatedCallback onReady;
+
     @JsProperty( name = "onAuthSuccess" )
     @JsNullable
     public KeycloakCallback onAuthSuccess;
+
     @JsProperty( name = "onAuthError" )
     @JsNullable
     public KeycloakCallback onAuthError;
+
     @JsProperty( name = "onAuthRefreshSuccess" )
     @JsNullable
     public KeycloakCallback onAuthRefreshSuccess;
+
     @JsProperty( name = "onAuthRefreshError" )
     @JsNullable
     public KeycloakCallback onAuthRefreshError;
+
     @JsProperty( name = "onAuthLogout" )
     @JsNullable
     public KeycloakCallback onAuthLogout;
+
     @JsProperty( name = "onTokenExpired" )
     @JsNullable
     public KeycloakCallback onTokenExpired;
