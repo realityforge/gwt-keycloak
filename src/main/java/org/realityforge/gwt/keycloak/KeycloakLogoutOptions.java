@@ -13,10 +13,11 @@ import jsinterop.annotations.JsType;
         namespace = JsPackage.GLOBAL,
         name = "Object"
 )
-public class KeycloakLogoutOptions {
-    @JsProperty(name = "redirectUri")
+public class KeycloakLogoutOptions
+{
+    @JsProperty( name = "redirectUri" )
     public native String redirectUri();
 
     @JsProperty
-    public native void setRedirectUri(@JsNullable String redirectUri);
+    public native void setRedirectUri( @JsNullable String redirectUri );
 }
