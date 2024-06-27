@@ -6,7 +6,7 @@ import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
 /**
- * Options class to pass to logout action.
+ * Options class to pass to the logout action.
  */
 @JsType( isNative = true, namespace = JsPackage.GLOBAL, name = "Object" )
 public class KeycloakLogoutOptions
