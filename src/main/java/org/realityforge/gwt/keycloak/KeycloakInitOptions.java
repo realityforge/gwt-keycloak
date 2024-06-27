@@ -7,7 +7,7 @@ import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
 /**
- * Options class to pass to init action.
+ * Options class to pass to the init action.
  */
 @JsType( isNative = true, namespace = JsPackage.GLOBAL, name = "Object" )
 public class KeycloakInitOptions
