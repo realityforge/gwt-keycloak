@@ -3,7 +3,7 @@ package org.realityforge.gwt.keycloak;
 import javax.annotation.Nullable;
 
 /**
- * Options class to pass to logout action.
+ * Options class to pass to the logout action.
  */
 public final class LogoutOptions
 {
