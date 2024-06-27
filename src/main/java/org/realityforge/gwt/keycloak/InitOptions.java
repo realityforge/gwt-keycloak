@@ -4,7 +4,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 /**
- * Options class to pass to init action.
+ * Options class to pass to the init action.
  */
 public final class InitOptions
 {
