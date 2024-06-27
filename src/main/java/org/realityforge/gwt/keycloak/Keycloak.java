@@ -217,7 +217,7 @@ public class Keycloak
   }
 
   /**
-   * Redirects to login form on (options is an optional object with redirectUri and/or prompt fields).
+   * Redirects to the login form on (options is an optional object with redirectUri and/or prompt fields).
    */
   public void login()
   {
@@ -244,7 +244,7 @@ public class Keycloak
   }
 
   /**
-   * Redirects to logout.
+   * Redirects to the logout url.
    */
   public void logout()
   {
