@@ -30,6 +30,4 @@ define 'gwt-keycloak' do
   package(:javadoc)
 
   gwt_enhance(project)
-
-  ipr.add_component_from_artifact(:idea_codestyle)
 end
