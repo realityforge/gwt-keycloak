@@ -1,3 +1,4 @@
 <module>
+  <inherits name='akasha.Akasha'/>
   <source path='' includes='*.java'/>
 </module>
