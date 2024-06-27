@@ -10,11 +10,7 @@ import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
-@JsType(
-  isNative = true,
-  namespace = JsPackage.GLOBAL,
-  name = "Keycloak"
-)
+@JsType( isNative = true, namespace = JsPackage.GLOBAL, name = "Keycloak" )
 public class KeycloakImpl
 {
   @JsConstructor
