@@ -9,6 +9,7 @@ import jsinterop.annotations.JsType;
 /**
  * Options class to pass to the init action.
  */
+@SuppressWarnings( "unused" )
 @JsType( isNative = true, namespace = JsPackage.GLOBAL, name = "Object" )
 public class KeycloakInitOptions
 {

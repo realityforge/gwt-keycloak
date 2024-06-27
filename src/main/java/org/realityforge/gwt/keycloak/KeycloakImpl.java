@@ -14,7 +14,7 @@ import jsinterop.annotations.JsType;
 public class KeycloakImpl
 {
   @JsConstructor
-  public KeycloakImpl( @JsNonNull String configUrl )
+  public KeycloakImpl( @SuppressWarnings( "unused" ) @JsNonNull String configUrl )
   {
   }
 

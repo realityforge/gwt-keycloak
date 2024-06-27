@@ -5,6 +5,7 @@ import javax.annotation.Nullable;
 /**
  * Options class to pass to the login action.
  */
+@SuppressWarnings( "unused" )
 public final class LoginOptions
 {
   @Nullable

@@ -6,6 +6,7 @@ import javax.annotation.Nullable;
 /**
  * Options class to pass to the init action.
  */
+@SuppressWarnings( { "unused", "UnusedReturnValue" } )
 public final class InitOptions
 {
   @Nullable

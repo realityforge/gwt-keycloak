@@ -5,6 +5,7 @@ import javax.annotation.Nullable;
 /**
  * Options class to pass to the logout action.
  */
+@SuppressWarnings( "unused" )
 public final class LogoutOptions
 {
   @Nullable

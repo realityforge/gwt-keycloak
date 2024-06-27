@@ -15,6 +15,7 @@ import org.realityforge.gwt.keycloak.Keycloak;
  * instance. The initial values of the tokens are supplied by configuring the {@link Keycloak} instance
  * by invoking {@link #configure(Keycloak)} and supplying the keycloak instance.
  */
+@SuppressWarnings( "unused" )
 public final class TokenCache
 {
   @Nonnull
