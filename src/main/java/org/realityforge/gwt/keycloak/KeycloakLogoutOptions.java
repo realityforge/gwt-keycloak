@@ -8,16 +8,12 @@ import jsinterop.annotations.JsType;
 /**
  * Options class to pass to logout action.
  */
-@JsType(
-        isNative = true,
-        namespace = JsPackage.GLOBAL,
-        name = "Object"
-)
+@JsType( isNative = true, namespace = JsPackage.GLOBAL, name = "Object" )
 public class KeycloakLogoutOptions
 {
-    @JsProperty( name = "redirectUri" )
-    public native String redirectUri();
+  @JsProperty( name = "redirectUri" )
+  public native String redirectUri();
 
-    @JsProperty
-    public native void setRedirectUri( @JsNullable String redirectUri );
+  @JsProperty
+  public native void setRedirectUri( @JsNullable String redirectUri );
 }
