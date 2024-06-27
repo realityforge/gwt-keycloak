@@ -3,7 +3,7 @@ package org.realityforge.gwt.keycloak;
 import javax.annotation.Nullable;
 
 /**
- * Options class to pass to login action.
+ * Options class to pass to the login action.
  */
 public final class LoginOptions
 {
