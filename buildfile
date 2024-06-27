@@ -7,8 +7,9 @@ Buildr::MavenCentral.define_publish_tasks(:profile_name => 'org.realityforge', :
 desc 'GWT Keycloak Library'
 define 'gwt-keycloak' do
   project.group = 'org.realityforge.gwt.keycloak'
-  compile.options.source = '1.8'
-  compile.options.target = '1.8'
+  project.compile.options.source = '11'
+  project.compile.options.target = '11'
+  project.iml.jdk_version = '17'
   compile.options.lint = 'all'
 
   project.version = ENV['PRODUCT_VERSION'] if ENV['PRODUCT_VERSION']
