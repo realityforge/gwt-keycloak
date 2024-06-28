@@ -25,6 +25,8 @@ define 'gwt-keycloak' do
                :jetbrains_annotations,
                :gwt_user
 
+  project.doc.options.merge!('Xdoclint:all,-missing' => true)
+
   package(:jar).include("#{_(:source, :main, :java)}/*")
   package(:sources)
   package(:javadoc)
