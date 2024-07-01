@@ -1,6 +1,6 @@
 package org.realityforge.gwt.keycloak;
 
-import com.google.gwt.core.client.JavaScriptObject;
+import akasha.core.JsObject;
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsNonNull;
@@ -26,7 +26,7 @@ public class KeycloakImpl
 
   @JsProperty( name = "tokenParsed" )
   @JsNullable
-  public native JavaScriptObject tokenParsed();
+  public native JsObject tokenParsed();
 
   @JsProperty( name = "subject" )
   @JsNullable
@@ -46,7 +46,7 @@ public class KeycloakImpl
 
   @JsProperty( name = "refreshTokenParsed" )
   @JsNullable
-  public native JavaScriptObject refreshTokenParsed();
+  public native JsObject refreshTokenParsed();
 
   @JsMethod( name = "init" )
   public native void init( @JsNonNull KeycloakInitOptions options );
