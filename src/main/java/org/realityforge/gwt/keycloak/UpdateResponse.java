@@ -1,13 +1,17 @@
 package org.realityforge.gwt.keycloak;
 
 import javax.annotation.Nullable;
+import jsinterop.annotations.JsNonNull;
+import jsinterop.annotations.JsNullable;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 
 @JsType( isNative = true, namespace = JsPackage.GLOBAL )
 public class UpdateResponse
 {
-  public native UpdateResponse success( @Nullable KeycloakCallback successCallback );
+  @JsNonNull
+  public native UpdateResponse success( @JsNullable KeycloakCallback successCallback );
 
-  public native UpdateResponse error( @Nullable KeycloakCallback failureCallback );
+  @JsNonNull
+  public native UpdateResponse error( @JsNullable KeycloakCallback failureCallback );
 }
