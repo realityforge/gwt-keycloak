@@ -68,7 +68,7 @@ public class KeycloakImpl
   public native void logout( @JsNonNull KeycloakLogoutOptions options );
 
   @JsMethod( name = "updateToken" )
-  public native Promise<Boolean> updateToken( int minValiditySeconds );
+  public native UpdateResponse updateToken( int minValiditySeconds );
 
   /**
    * Clear authentication state, including tokens.

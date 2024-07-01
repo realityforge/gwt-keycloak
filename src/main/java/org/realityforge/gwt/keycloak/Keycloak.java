@@ -276,15 +276,22 @@ public class Keycloak
                            @Nullable final Runnable successCallback,
                            @Nullable final Runnable failureCallback )
   {
-
+    final KeycloakCallback success = () -> {
+      if ( null != successCallback )
+      {
+        successCallback.run();
+      }
+    };
+    final KeycloakCallback error = () -> {
+      if ( null != failureCallback )
+      {
+        failureCallback.run();
+      }
+    };
     getImpl()
       .updateToken( minValiditySeconds )
-      .thenAccept( result -> {
-        if ( successCallback != null )
-        {
-          successCallback.run();
-        }
-      } );
+            .success(success)
+            .error(error);
   }
 
   /**
