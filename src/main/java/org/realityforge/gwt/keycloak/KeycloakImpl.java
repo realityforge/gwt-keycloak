@@ -1,6 +1,5 @@
 package org.realityforge.gwt.keycloak;
 
-import akasha.promise.Promise;
 import com.google.gwt.core.client.JavaScriptObject;
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsMethod;
