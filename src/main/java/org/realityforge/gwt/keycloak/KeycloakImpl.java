@@ -66,6 +66,9 @@ public class KeycloakImpl
   @JsMethod( name = "logout" )
   public native void logout( @JsNonNull KeycloakLogoutOptions options );
 
+  // NOTE: Keycloak 5 returns a custom object while keycloak 11 returns a promise,
+  // so we return a wrapper to work around differences. Remove this and use a promise
+  // when we no longer support the ancient versions of keycloak.
   @JsMethod( name = "updateToken" )
   public native UpdateResponse updateToken( int minValiditySeconds );
 
