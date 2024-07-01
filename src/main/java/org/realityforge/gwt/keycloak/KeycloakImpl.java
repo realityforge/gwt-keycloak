@@ -72,8 +72,8 @@ public class KeycloakImpl
 
   /**
    * Clear authentication state, including tokens.
-   * This can be useful if application has detected the session was expired, for example if updating token fails.
-   * Invoking this results in onAuthLogout callback listener being invoked.
+   * This can be useful if application has detected the session was expired, for example, if updating token fails.
+   * Invoking this method results in onAuthLogout callback listener being invoked.
    */
   @JsMethod( name = "clearToken" )
   public native boolean clearToken();
