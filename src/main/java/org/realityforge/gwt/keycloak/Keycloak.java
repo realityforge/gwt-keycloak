@@ -196,9 +196,9 @@ public class Keycloak
     LOG.info( "Initializing Keycloak instance for client " + _key );
     final OnLoadAction onLoadAction = options.getOnLoadAction();
     final String onLoad =
-      OnLoadAction.LOGIN_REQUIRED == onLoadAction ? "login-required" :
-      OnLoadAction.CHECK_SSO == onLoadAction ? "check-sso" :
-      null;
+            OnLoadAction.LOGIN_REQUIRED == onLoadAction ? "login-required" :
+                    OnLoadAction.CHECK_SSO == onLoadAction ? "check-sso" :
+                            null;
     final KeycloakInitOptions keycloakInitOptions = new KeycloakInitOptions();
     keycloakInitOptions.setOnLoad( onLoad );
     keycloakInitOptions.setToken( options.getToken() );
@@ -272,26 +272,25 @@ public class Keycloak
    * If the session status iframe is enabled, the session status is also checked.
    * On failure the tokens are cleared.
    */
-  public void updateToken( final int minValiditySeconds,
-                           @Nullable final Runnable successCallback,
-                           @Nullable final Runnable failureCallback )
+  public void updateToken(final int minValiditySeconds,
+                          @Nullable final Runnable successCallback,
+                          @Nullable final Runnable failureCallback)
   {
-    final KeycloakCallback success = () -> {
-      if ( null != successCallback )
-      {
-        successCallback.run();
-      }
-    };
-    final KeycloakCallback error = () -> {
-      if ( null != failureCallback )
-      {
-        failureCallback.run();
-      }
-    };
-    getImpl()
-      .updateToken( minValiditySeconds )
-            .success(success)
-            .error(error);
+    getImpl().updateToken(minValiditySeconds)
+            .then((refreshed) -> {
+              if (successCallback != null)
+              {
+                successCallback.run();
+              }
+              return refreshed;
+            })
+            .catch_((error) -> {
+              if (failureCallback != null)
+              {
+                failureCallback.run();
+              }
+              return null;
+            });
   }
 
   /**
